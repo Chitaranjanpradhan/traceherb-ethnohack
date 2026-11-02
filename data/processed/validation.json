@@ -1,0 +1,98 @@
+{
+  "corpus": "Europe PMC open-access ethnobotany/ethnopharmacology (200 articles)",
+  "edges_total": 7113,
+  "precision_proxy": {
+    "sampled": 60,
+    "with_therapeutic_cue": 26,
+    "rate": 0.433,
+    "method": "fraction of sampled edges whose cited sentence contains an explicit use/treatment cue (rule-based, reproducible, seed=42)"
+  },
+  "recall_vs_gold": {
+    "gold_pairs": 15,
+    "recovered": 14,
+    "rate": 0.933,
+    "detail": [
+      {
+        "plant_pattern": "Zingiber",
+        "condition_pattern": "nausea|digestive|gastro",
+        "recovered": true
+      },
+      {
+        "plant_pattern": "Allium sativum",
+        "condition_pattern": "hypertension|blood pressure|cholesterol",
+        "recovered": true
+      },
+      {
+        "plant_pattern": "Curcuma",
+        "condition_pattern": "inflammation|arthriti|anti-inflammator",
+        "recovered": true
+      },
+      {
+        "plant_pattern": "Artemisia",
+        "condition_pattern": "malaria|fever",
+        "recovered": true
+      },
+      {
+        "plant_pattern": "Aloe",
+        "condition_pattern": "skin|burn|wound",
+        "recovered": true
+      },
+      {
+        "plant_pattern": "Cassia|Senna",
+        "condition_pattern": "constipation|laxative",
+        "recovered": false
+      },
+      {
+        "plant_pattern": "Azadirachta",
+        "condition_pattern": "skin|infection|antimicrobial|gastro",
+        "recovered": true
+      },
+      {
+        "plant_pattern": "Psidium guajava",
+        "condition_pattern": "diarrh|gastro",
+        "recovered": true
+      },
+      {
+        "plant_pattern": "Ocimum",
+        "condition_pattern": "respiratory|cough|cold|fever",
+        "recovered": true
+      },
+      {
+        "plant_pattern": "Withania",
+        "condition_pattern": "stress|anxiety|sleep|immun",
+        "recovered": true
+      },
+      {
+        "plant_pattern": "Camellia sinensis",
+        "condition_pattern": "antioxidant|cardio|cholesterol",
+        "recovered": true
+      },
+      {
+        "plant_pattern": "Moringa",
+        "condition_pattern": "diabetes|nutrition|inflammation",
+        "recovered": true
+      },
+      {
+        "plant_pattern": "Hibiscus",
+        "condition_pattern": "hypertension|blood pressure",
+        "recovered": true
+      },
+      {
+        "plant_pattern": "Mentha",
+        "condition_pattern": "digestive|gastro|nausea",
+        "recovered": true
+      },
+      {
+        "plant_pattern": "Glycyrrhiza|Licorice",
+        "condition_pattern": "cough|respiratory|gastro|ulcer",
+        "recovered": true
+      }
+    ]
+  },
+  "limitations": [
+    "Associations are literature CO-OCCURRENCES within a section, not verified causal/clinical facts.",
+    "Section-level co-occurrence can still capture incidental mentions; precision proxy measures only presence of a use-cue sentence.",
+    "Corpus limited to 200 OA articles; coverage skews to well-studied taxa and English literature.",
+    "GBIF match accepted at species/genus; homonyms and vernacular names may mis-resolve."
+  ]
+}

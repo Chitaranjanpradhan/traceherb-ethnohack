@@ -1,0 +1,422 @@
+[
+  {
+    "plant": "Morus alba L.",
+    "condition": "abscesses",
+    "support": 2,
+    "therapeutic_cue": true,
+    "sample_sentence": "counter neck tumors, [abscesses] , inflammatory diseases of"
+  },
+  {
+    "plant": "Artemisia afra Jacq.",
+    "condition": "hepatitis",
+    "support": 3,
+    "therapeutic_cue": true,
+    "sample_sentence": "conditions such as [hepatitis] and liver tumors"
+  },
+  {
+    "plant": "Phyllanthus emblica L.",
+    "condition": "gastrointestinal disorders",
+    "support": 6,
+    "therapeutic_cue": true,
+    "sample_sentence": "erapeutic applications include [gastrointestinal disorders] disorders (e.g., Dialium"
+  },
+  {
+    "plant": "Rumex nepalensis Spreng.",
+    "condition": "rabies",
+    "support": 2,
+    "therapeutic_cue": true,
+    "sample_sentence": "[ 45 ], [rabies] [ 78 ,"
+  },
+  {
+    "plant": "Butea monosperma (Lam.) Kuntze",
+    "condition": "asthma",
+    "support": 2,
+    "therapeutic_cue": true,
+    "sample_sentence": "antispasmodic effects in [asthma] ."
+  },
+  {
+    "plant": "Urceola polymorpha (Pierre) D.J.Middleton & Livsh.",
+    "condition": "immune disorders",
+    "support": 3,
+    "therapeutic_cue": false,
+    "sample_sentence": "disorders (0.948), infection/ [immune disorders] disorders (0.945), and"
+  },
+  {
+    "plant": "Punica granatum L.",
+    "condition": "chronic disease",
+    "support": 3,
+    "therapeutic_cue": true,
+    "sample_sentence": "anomaly to all [chronic disease] disease conditions, and"
+  },
+  {
+    "plant": "Allium sativum L.",
+    "condition": "systemic infections",
+    "support": 3,
+    "therapeutic_cue": false,
+    "sample_sentence": "to localized or [systemic infections] infections [ 53"
+  },
+  {
+    "plant": "Rubus L.",
+    "condition": "skin disorders",
+    "support": 2,
+    "therapeutic_cue": true,
+    "sample_sentence": "poultices to treat [skin disorders] disorders [ 21"
+  },
+  {
+    "plant": "Zea mays L.",
+    "condition": "dysentery",
+    "support": 4,
+    "therapeutic_cue": true,
+    "sample_sentence": "as constipation, diarrhea, [dysentery] , stomachache, and liver"
+  },
+  {
+    "plant": "Passiflora L.",
+    "condition": "cancer",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "diseases, such as [cancer] , diabetes, and neurodegenerat"
+  },
+  {
+    "plant": "Rumex nepalensis Spreng.",
+    "condition": "common cold",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "evil eye, bronchi, [common cold] cold, acute sickness,"
+  },
+  {
+    "plant": "Finlaysonia pierrei (Costantin) Venter",
+    "condition": "gastrointestinal disorders",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "erapeutic applications include [gastrointestinal disorders] disorders (e.g., Dialium"
+  },
+  {
+    "plant": "Mimosa pudica L.",
+    "condition": "malaria",
+    "support": 4,
+    "therapeutic_cue": true,
+    "sample_sentence": "As [malaria] is one of"
+  },
+  {
+    "plant": "Lagenaria siceraria (Molina) Standl.",
+    "condition": "syphilis",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "ulcers, menstrual complaints, [syphilis] , diabetes, cancer, hepatitis,"
+  },
+  {
+    "plant": "Buchanania lanzan Spreng.",
+    "condition": "urinary disorders",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "managing diabetes and [urinary disorders] disorders."
+  },
+  {
+    "plant": "Calotropis procera (Aiton) W.T.Aiton",
+    "condition": "respiratory disorders",
+    "support": 5,
+    "therapeutic_cue": false,
+    "sample_sentence": "[Respiratory disorders] disorders and malaria"
+  },
+  {
+    "plant": "Melia azedarach L.",
+    "condition": "diabetes",
+    "support": 5,
+    "therapeutic_cue": true,
+    "sample_sentence": "knowledge as managing [diabetes] with Trigonella foenum-graecum"
+  },
+  {
+    "plant": "Ricinus communis L.",
+    "condition": "hypertension",
+    "support": 4,
+    "therapeutic_cue": true,
+    "sample_sentence": "consumed to manage [hypertension] in addition to"
+  },
+  {
+    "plant": "Plantago major L.",
+    "condition": "acne",
+    "support": 3,
+    "therapeutic_cue": false,
+    "sample_sentence": "warts, burn, and [acne] ) with a UR"
+  },
+  {
+    "plant": "Saraca asoca (Roxb.) W.J.de Wilde",
+    "condition": "skin diseases",
+    "support": 3,
+    "therapeutic_cue": true,
+    "sample_sentence": "traditional remedies for [skin diseases] diseases and neurological"
+  },
+  {
+    "plant": "Cyperus rotundus L.",
+    "condition": "skin diseases",
+    "support": 2,
+    "therapeutic_cue": true,
+    "sample_sentence": "traditional remedies for [skin diseases] diseases and neurological"
+  },
+  {
+    "plant": "Linum usitatissimum L.",
+    "condition": "disorders of the",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "mainly related to [disorders of the] of the respiratory"
+  },
+  {
+    "plant": "Withania somnifera (L.) Dunal",
+    "condition": "infectious diseases",
+    "support": 6,
+    "therapeutic_cue": true,
+    "sample_sentence": "In [infectious diseases] diseases, medicinal plants"
+  },
+  {
+    "plant": "Harungana madagascariensis Poir.",
+    "condition": "rheumatism",
+    "support": 2,
+    "therapeutic_cue": true,
+    "sample_sentence": "aling, swelling, inflammation, [rheumatism] , and gastrointestinal disease"
+  },
+  {
+    "plant": "Matricaria recutita L.",
+    "condition": "skin inflammations",
+    "support": 3,
+    "therapeutic_cue": true,
+    "sample_sentence": "to reduce various [skin inflammations] inflammations, alleviate redne"
+  },
+  {
+    "plant": "Punica granatum L.",
+    "condition": "eye infections",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": ", mainly for [eye infections] infections and pain,"
+  },
+  {
+    "plant": "Nigella sativa L.",
+    "condition": "menstrual disorders",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "for symptoms of [menstrual disorders] disorders that include"
+  },
+  {
+    "plant": "Plumbago zeylanica L.",
+    "condition": "bronchitis",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "and also for [bronchitis] , digestive disorders, neurolo"
+  },
+  {
+    "plant": "Ficus sycomorus L.",
+    "condition": "eye infections",
+    "support": 2,
+    "therapeutic_cue": true,
+    "sample_sentence": "the treatment of [eye infections] infections, a use"
+  },
+  {
+    "plant": "Brassica oleracea L.",
+    "condition": "neurological disorders",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "arasitic, musculoskeletal, and [neurological disorders] disorders."
+  },
+  {
+    "plant": "Psidium guajava L.",
+    "condition": "skin conditions",
+    "support": 3,
+    "therapeutic_cue": false,
+    "sample_sentence": "reported uses for [skin conditions] conditions, including rash,"
+  },
+  {
+    "plant": "Carum carvi L.",
+    "condition": "irritable bowel syndrome",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "nt in constipation-predominant [irritable bowel syndrome] bowel syndrome and"
+  },
+  {
+    "plant": "Khaya senegalensis (Desv.) A.Juss.",
+    "condition": "aids",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "as malaria, cancer, HIV/ [AIDS] , and tuberculosis, resulting"
+  },
+  {
+    "plant": "Centella asiatica (L.) Urb.",
+    "condition": "diabetic ulcers",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "wounds, such as [diabetic ulcers] ulcers, pressure sores,"
+  },
+  {
+    "plant": "Trachyspermum ammi (L.) Sprague",
+    "condition": "digestive disorders",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "Trachyspermum ammi for [digestive disorders] disorders and Zingiberaceae"
+  },
+  {
+    "plant": "Aloe vera (L.) Burm.f.",
+    "condition": "hypertension",
+    "support": 9,
+    "therapeutic_cue": true,
+    "sample_sentence": "used to manage [hypertension] in the study"
+  },
+  {
+    "plant": "Sclerocarya birrea (A.Rich.) Hochst.",
+    "condition": "anxiety",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "congestion, headaches, and [anxiety] [ 2 ,"
+  },
+  {
+    "plant": "Thymus vulgaris L.",
+    "condition": "atherosclerosis",
+    "support": 2,
+    "therapeutic_cue": true,
+    "sample_sentence": "cholesterolemia, diabetes, and [atherosclerosis] [ 72 ,"
+  },
+  {
+    "plant": "Camellia sinensis (L.) Kuntze",
+    "condition": "digestive disorders",
+    "support": 3,
+    "therapeutic_cue": false,
+    "sample_sentence": "diseases, including nausea, [digestive disorders] disorders, respiratory disorde"
+  },
+  {
+    "plant": "Plantago major L.",
+    "condition": "anemia",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "as to counter [anemia] , fever, rheumatism, headaches"
+  },
+  {
+    "plant": "Buchanania siamensis Miq.",
+    "condition": "respiratory disorders",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "= 0.826), and [respiratory disorders] disorders (ICF ="
+  },
+  {
+    "plant": "Alchemilla L.",
+    "condition": "cardiovascular diseases",
+    "support": 2,
+    "therapeutic_cue": true,
+    "sample_sentence": "as remedies for [cardiovascular diseases] diseases, cancer, and"
+  },
+  {
+    "plant": "Centella asiatica (L.) Urb.",
+    "condition": "gastrointestinal diseases",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "use reports,17 species), [gastrointestinal diseases] diseases (229 use"
+  },
+  {
+    "plant": "Brassica oleracea L.",
+    "condition": "diabetes",
+    "support": 3,
+    "therapeutic_cue": true,
+    "sample_sentence": "nausea, hypertension, anemia, [diabetes] , anxiety, depression, and"
+  },
+  {
+    "plant": "Peganum harmala L.",
+    "condition": "urinary tract infections",
+    "support": 3,
+    "therapeutic_cue": false,
+    "sample_sentence": "respiratory tract infections, [urinary tract infections] tract infections, and"
+  },
+  {
+    "plant": "Securidaca longepedunculata Fresen.",
+    "condition": "skin infections",
+    "support": 2,
+    "therapeutic_cue": true,
+    "sample_sentence": "wounds, ulcers, and [skin infections] infections, and in"
+  },
+  {
+    "plant": "Ageratum conyzoides L.",
+    "condition": "anaemia",
+    "support": 2,
+    "therapeutic_cue": true,
+    "sample_sentence": "as diarrhoea and [anaemia] ."
+  },
+  {
+    "plant": "Ximenia americana L.",
+    "condition": "eye infections",
+    "support": 4,
+    "therapeutic_cue": false,
+    "sample_sentence": "such as tonsillitis, [eye infections] infections, anthrax, urinary"
+  },
+  {
+    "plant": "Punica granatum L.",
+    "condition": "metabolic disorders",
+    "support": 4,
+    "therapeutic_cue": false,
+    "sample_sentence": "Cardiovascular and [metabolic disorders] disorders"
+  },
+  {
+    "plant": "Apium graveolens L.",
+    "condition": "bronchitis",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "wounds, sprains, asthma, [bronchitis] , and coughs."
+  },
+  {
+    "plant": "Saraca asoca (Roxb.) W.J.de Wilde",
+    "condition": "diabetes",
+    "support": 4,
+    "therapeutic_cue": false,
+    "sample_sentence": "metabolic disorders, including [diabetes] , hypertension, and liver"
+  },
+  {
+    "plant": "Aloe L.",
+    "condition": "gonorrhea",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "of zero for [gonorrhea] ."
+  },
+  {
+    "plant": "Withania somnifera (L.) Dunal",
+    "condition": "anxiety",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "lowering blood pressure, [anxiety] , and depression ("
+  },
+  {
+    "plant": "Allium cepa L.",
+    "condition": "intestinal diseases",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "colds, stomach, and [intestinal diseases] diseases [ 41"
+  },
+  {
+    "plant": "Linum usitatissimum L.",
+    "condition": "typhoid",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "Allium sativum for [typhoid] (FL = 85.1%)"
+  },
+  {
+    "plant": "Cinchona L.",
+    "condition": "malaria",
+    "support": 2,
+    "therapeutic_cue": true,
+    "sample_sentence": "As [malaria] is one of"
+  },
+  {
+    "plant": "Tilia L.",
+    "condition": "diabetes",
+    "support": 2,
+    "therapeutic_cue": true,
+    "sample_sentence": "thyroid function; treating [diabetes] , anemia, and gastrointestinal"
+  },
+  {
+    "plant": "Ocimum lamiifolium Hochst. ex Benth.",
+    "condition": "malaria",
+    "support": 5,
+    "therapeutic_cue": true,
+    "sample_sentence": "purposes, including headache, [malaria] and against evil"
+  },
+  {
+    "plant": "Rosa indica L.",
+    "condition": "respiratory disorders",
+    "support": 2,
+    "therapeutic_cue": false,
+    "sample_sentence": "for leucoderma and [respiratory disorders] disorders, Aristolochia indica"
+  }
+]

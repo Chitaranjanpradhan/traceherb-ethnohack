@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TraceHerb — evidence-grounded ethnopharmacology explorer</title>
+<style>
+  :root{--bg:#0f1512;--surf:#17201c;--surf2:#1f2a24;--bd:#2c3a32;--tx:#e9f1ec;--tx2:#9fb3a8;
+    --accent:#2f9e6e;--accent2:#d9a441;--chip:#20302a}
+  *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--tx);font-size:14px}
+  header{padding:16px 22px;border-bottom:1px solid var(--bd);background:var(--surf);position:sticky;top:0;z-index:5}
+  h1{margin:0;font-size:18px}h1 span{color:var(--accent)}
+  .sub{color:var(--tx2);font-size:12px;margin-top:3px}
+  .wrap{display:grid;grid-template-columns:360px 1fr;gap:0;min-height:calc(100vh - 62px)}
+  .left{border-right:1px solid var(--bd);padding:16px;overflow:auto;max-height:calc(100vh - 62px)}
+  .right{padding:18px 22px;overflow:auto;max-height:calc(100vh - 62px)}
+  .seg{display:flex;gap:4px;background:var(--surf2);border-radius:8px;padding:3px;margin-bottom:10px}
+  .seg button{flex:1;border:0;background:transparent;color:var(--tx2);padding:7px;border-radius:6px;font-weight:600;cursor:pointer}
+  .seg button.on{background:var(--accent);color:#06130d}
+  input{width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);font-size:14px}
+  .item{padding:9px 11px;border:1px solid var(--bd);border-radius:8px;margin-top:7px;cursor:pointer;display:flex;justify-content:space-between;gap:8px;align-items:center}
+  .item:hover{background:var(--surf2)}.item.sel{border-color:var(--accent);background:var(--surf2)}
+  .item .nm{font-style:italic}.item.cond .nm{font-style:normal}
+  .badge{font-size:11px;color:var(--tx2);white-space:nowrap}
+  .kpis{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+  .kpi{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:10px 14px}
+  .kpi b{font-size:20px}.kpi span{display:block;color:var(--tx2);font-size:11px}
+  h2{font-size:15px;margin:4px 0 10px}.muted{color:var(--tx2)}
+  .edge{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+  .edge .hd{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+  .edge .t{font-size:15px}.edge .t i{color:var(--accent)}.edge .t b{color:var(--accent2)}
+  .bar{height:6px;background:var(--surf2);border-radius:3px;overflow:hidden;flex:1;min-width:80px;max-width:160px}
+  .bar>div{height:100%;background:var(--accent)}
+  .ev{margin-top:9px;border-top:1px dashed var(--bd);padding-top:8px}
+  .ev .s{font-size:12.5px;color:var(--tx);margin:5px 0;line-height:1.5}
+  .ev .s mark{background:rgba(47,158,110,.28);color:var(--tx);padding:0 3px;border-radius:3px}
+  .ev a{color:var(--accent);font-size:12px;text-decoration:none}.ev a:hover{text-decoration:underline}
+  .chip{display:inline-block;background:var(--chip);color:var(--tx2);font-size:11px;padding:2px 8px;border-radius:999px;margin:2px 3px 0 0}
+  .note{font-size:11px;color:var(--tx2);margin-top:14px;line-height:1.5}
+</style></head>
+<body>
+<header>
+  <h1><span>🌿 TraceHerb</span> — evidence-grounded ethnopharmacology explorer</h1>
+  <div class="sub">Every plant→condition link traces to the sentence and DOI it came from. Associations are literature co-occurrences, not validated medical facts.</div>
+</header>
+<div class="wrap">
+  <div class="left">
+    <div class="seg"><button id="bp" class="on">By plant</button><button id="bc">By condition</button></div>
+    <input id="q" placeholder="search — try ginger, garlic, turmeric, neem…"/>
+    <div id="list"></div>
+    <div class="note" id="note"></div>
+  </div>
+  <div class="right">
+    <div class="kpis" id="kpis"></div>
+    <h2 id="title">Select a plant or condition →</h2>
+    <div id="detail" class="muted">Pick an item on the left to see its evidence-cited associations.</div>
+  </div>
+</div>
+<script>
+let MODE='plant', SEL=null, DATA={edges:[]};
+// common name -> genus/species substring (so "ginger" finds Zingiber officinale)
+const COMMON={ginger:'zingiber officinale',garlic:'allium sativum',turmeric:'curcuma longa',
+ neem:'azadirachta',aloe:'aloe vera','holy basil':'ocimum',tulsi:'ocimum',basil:'ocimum',
+ ashwagandha:'withania',guava:'psidium guajava',onion:'allium cepa',moringa:'moringa',
+ 'drumstick':'moringa',ginseng:'panax',fenugreek:'trigonella',soursop:'annona muricata',
+ graviola:'annona muricata',papaya:'carica papaya',pomegranate:'punica granatum',
+ hibiscus:'hibiscus',mint:'mentha',peppermint:'mentha',licorice:'glycyrrhiza',
+ senna:'senna',cinnamon:'cinnamomum',clove:'syzygium aromaticum','green tea':'camellia sinensis',
+ tea:'camellia sinensis',mango:'mangifera',lemongrass:'cymbopogon',cardamom:'elettaria',
+ 'bitter leaf':'vernonia',castor:'ricinus',eucalyptus:'eucalyptus',sesame:'sesamum',
+ flaxseed:'linum',fennel:'foeniculum',coriander:'coriandrum',garcinia:'garcinia'};
+const $=s=>document.querySelector(s);
+const esc=s=>(s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+fetch('graph.json').then(r=>r.json()).then(d=>{DATA=d;boot()});
+function boot(){
+  const plants=new Set(DATA.edges.map(e=>e.p)), conds=new Set(DATA.edges.map(e=>e.c));
+  $('#kpis').innerHTML=`<div class="kpi"><b>${DATA.edges.length}</b><span>evidence-cited links</span></div>
+    <div class="kpi"><b>${plants.size}</b><span>plant species</span></div>
+    <div class="kpi"><b>${conds.size}</b><span>conditions</span></div>`;
+  $('#note').innerHTML='Confidence = f(number of distinct papers co-mentioning the pair in the same section). Source: Europe PMC open-access corpus; names resolved via GBIF. Built for EthnoHack 2026 · Track 1.';
+  $('#bp').onclick=()=>{MODE='plant';$('#bp').classList.add('on');$('#bc').classList.remove('on');render()};
+  $('#bc').onclick=()=>{MODE='cond';$('#bc').classList.add('on');$('#bp').classList.remove('on');render()};
+  $('#q').oninput=render; render();
+}
+function render(){
+  const key=MODE==='plant'?'p':'c'; let q=$('#q').value.toLowerCase().trim();
+  if(MODE==='plant' && COMMON[q]) q=COMMON[q];            // common name -> latin
+  const agg={};
+  DATA.edges.forEach(e=>{const k=e[key]; (agg[k]=agg[k]||{n:0,links:0}); agg[k].links++; agg[k].n=Math.max(agg[k].n,e.n)});
+  let items=Object.keys(agg).filter(k=>k.toLowerCase().includes(q)).sort((a,b)=>agg[b].links-agg[a].links).slice(0,400);
+  $('#list').innerHTML=items.map(k=>`<div class="item ${MODE==='cond'?'cond':''} ${k===SEL?'sel':''}" data-k="${esc(k)}">
+     <span class="nm">${esc(k)}</span><span class="badge">${agg[k].links} links</span></div>`).join('');
+  $('#list').querySelectorAll('.item').forEach(el=>el.onclick=()=>{SEL=el.dataset.k;render();detail()});
+  if(SEL&&!items.includes(SEL)){} else if(SEL) detail();
+}
+function detail(){
+  const key=MODE==='plant'?'p':'c', other=MODE==='plant'?'c':'p';
+  let rows=DATA.edges.filter(e=>e[key]===SEL).sort((a,b)=>b.n-a.n);
+  $('#title').innerHTML=(MODE==='plant'?'<i style="color:var(--accent)">'+esc(SEL)+'</i>':esc(SEL))+
+     ` <span class="muted" style="font-size:13px">· ${rows.length} associations</span>`;
+  const maxn=Math.max(...rows.map(r=>r.n),1);
+  $('#detail').innerHTML=rows.map(r=>{
+    const label=MODE==='plant'?`<i>${esc(r.p)}</i> → <b>${esc(r.c)}</b>`:`<i>${esc(r.p)}</i> → <b>${esc(r.c)}</b>`;
+    const ev=r.ev.map(x=>{
+      const ctx=esc(x.context||'').replace(/\[(.*?)\]/,'<mark>$1</mark>');
+      const url=x.doi?('https://doi.org/'+x.doi):('https://europepmc.org/article/PMC/'+x.pmcid);
+      return `<div class="s">“${ctx}” <br><a href="${url}" target="_blank">${x.doi?('doi:'+esc(x.doi)):esc(x.pmcid)}</a> <span class="muted">· ${esc(x.section||'')}</span></div>`;
+    }).join('');
+    const chem=(r.chem||[]).map(c=>`<span class="chip">${esc(c)}</span>`).join('');
+    return `<div class="edge"><div class="hd"><div class="t">${label}</div>
+      <div class="bar"><div style="width:${Math.round(r.n/maxn*100)}%"></div></div>
+      <span class="badge">${r.n} papers · conf ${r.conf}</span></div>
+      ${chem?('<div style="margin-top:6px">'+chem+'</div>'):''}
+      <div class="ev">${ev}</div></div>`;
+  }).join('');
+}
+</script>
+</body></html>
